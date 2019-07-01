@@ -84,7 +84,7 @@
               "apps/employee-contacts/tsconfig.app.json",
               "apps/employee-contacts/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!apps/employee-contacts/**"]
           }
         },
         "test": {
@@ -119,7 +119,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/employee-contacts-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!apps/employee-contacts-e2e/**"]
           }
         }
       }
@@ -137,7 +137,7 @@
               "libs/core-data/tsconfig.lib.json",
               "libs/core-data/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!libs/core-data/**"]
           }
         },
         "test": {
@@ -168,7 +168,7 @@
               "libs/material/tsconfig.lib.json",
               "libs/material/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!libs/material/**"]
           }
         },
         "test": {
@@ -199,7 +199,7 @@
               "libs/ui-toolbar/tsconfig.lib.json",
               "libs/ui-toolbar/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!libs/ui-toolbar/**"]
           }
         },
         "test": {
@@ -230,7 +230,7 @@
               "libs/ui-login/tsconfig.lib.json",
               "libs/ui-login/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!libs/ui-login/**"]
           }
         },
         "test": {
