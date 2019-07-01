@@ -26,7 +26,10 @@
               "apps/employee-contacts/src/favicon.ico",
               "apps/employee-contacts/src/assets"
             ],
-            "styles": ["apps/employee-contacts/src/styles.scss"],
+            "styles": [
+              "apps/employee-contacts/src/styles.scss",
+              "libs/theme/theme.scss"
+            ],
             "scripts": [],
             "es5BrowserSupport": true
           },
@@ -85,7 +88,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/employee-contacts/jest.config.js",
             "tsConfig": "apps/employee-contacts/tsconfig.spec.json",
@@ -100,7 +103,7 @@
       "prefix": "",
       "architect": {
         "e2e": {
-          "builder": "@nrwl/builders:cypress",
+          "builder": "@nrwl/cypress:cypress",
           "options": {
             "cypressConfig": "apps/employee-contacts-e2e/cypress.json",
             "tsConfig": "apps/employee-contacts-e2e/tsconfig.e2e.json",
@@ -138,7 +141,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/core-data/jest.config.js",
             "tsConfig": "libs/core-data/tsconfig.spec.json",
@@ -169,7 +172,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/material/jest.config.js",
             "tsConfig": "libs/material/tsconfig.spec.json",
@@ -200,7 +203,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui-toolbar/jest.config.js",
             "tsConfig": "libs/ui-toolbar/tsconfig.spec.json",
@@ -231,7 +234,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui-login/jest.config.js",
             "tsConfig": "libs/ui-login/tsconfig.spec.json",
@@ -251,14 +254,15 @@
       "typescriptMismatch": false,
       "versionMismatch": false
     },
-    "defaultCollection": "@nrwl/schematics"
+    "defaultCollection": "@nrwl/angular"
   },
   "schematics": {
     "@nrwl/schematics:application": {
       "style": "scss"
     },
     "@nrwl/schematics:library": {
-      "style": "scss"
+      "style": "scss",
+      "framework": "angular"
     }
   },
   "defaultProject": "employee-contacts"
