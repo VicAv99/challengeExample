@@ -13,6 +13,18 @@
     },
     "employee-contacts-e2e": {
       "tags": []
+    },
+    "core-data": {
+      "tags": ["core-data", "data", "services"]
+    },
+    "material": {
+      "tags": ["mat", "material", "ng-mat", "md"]
+    },
+    "ui-toolbar": {
+      "tags": ["ui-toolbar", "toolbar"]
+    },
+    "ui-login": {
+      "tags": ["ui-login", "login"]
     }
   }
 }
