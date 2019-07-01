@@ -2,7 +2,126 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "",
-  "projects": {},
+  "projects": {
+    "employee-contacts": {
+      "root": "apps/employee-contacts/",
+      "sourceRoot": "apps/employee-contacts/src",
+      "projectType": "application",
+      "prefix": "workspace",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/employee-contacts",
+            "index": "apps/employee-contacts/src/index.html",
+            "main": "apps/employee-contacts/src/main.ts",
+            "polyfills": "apps/employee-contacts/src/polyfills.ts",
+            "tsConfig": "apps/employee-contacts/tsconfig.app.json",
+            "assets": [
+              "apps/employee-contacts/src/favicon.ico",
+              "apps/employee-contacts/src/assets"
+            ],
+            "styles": ["apps/employee-contacts/src/styles.scss"],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/employee-contacts/src/environments/environment.ts",
+                  "with": "apps/employee-contacts/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "employee-contacts:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "employee-contacts:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "employee-contacts:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/employee-contacts/tsconfig.app.json",
+              "apps/employee-contacts/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/employee-contacts/jest.config.js",
+            "tsConfig": "apps/employee-contacts/tsconfig.spec.json",
+            "setupFile": "apps/employee-contacts/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "employee-contacts-e2e": {
+      "root": "apps/employee-contacts-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/employee-contacts-e2e/cypress.json",
+            "tsConfig": "apps/employee-contacts-e2e/tsconfig.e2e.json",
+            "devServerTarget": "employee-contacts:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "employee-contacts:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/employee-contacts-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "warnings": {
       "typescriptMismatch": false,
@@ -17,5 +136,6 @@
     "@nrwl/schematics:library": {
       "style": "scss"
     }
-  }
+  },
+  "defaultProject": "employee-contacts"
 }
