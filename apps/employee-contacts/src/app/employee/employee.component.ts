@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Observable } from 'rxjs';
 
 import { EmployeeContact, EmployeesContactsService } from '@workspace/core-data';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'workspace-employee',
@@ -22,11 +22,47 @@ export class EmployeeComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
-    this.employeeContacts$ = this.employeeContactsService.all();
+    this.getEmployeeContacts();
   }
 
   select(employeeContact: EmployeeContact) {
     this.employeeContact = employeeContact;
+    this.form.patchValue(employeeContact);
+  }
+
+  getEmployeeContacts() {
+    this.employeeContacts$ = this.employeeContactsService.all();
+  }
+
+  save(employeeContact: EmployeeContact) {
+    employeeContact.id ?
+      this.updateEmployeeContact(employeeContact)
+      : this.createEmployeeContact(employeeContact);
+  }
+
+  createEmployeeContact(employeeContact: EmployeeContact) {
+    this.employeeContactsService.create(employeeContact).subscribe(res => {
+      this.getEmployeeContacts();
+      this.reset();
+    });
+  }
+
+  updateEmployeeContact(employeeContact: EmployeeContact) {
+    this.employeeContactsService.update(employeeContact).subscribe(res => {
+      this.getEmployeeContacts();
+      this.reset();
+    });
+  }
+
+  deleteEmployeeContact(employeeContactId: number) {
+    this.employeeContactsService.delete(employeeContactId).subscribe(res => {
+      this.getEmployeeContacts();
+      this.reset();
+    });
+  }
+
+  reset() {
+    this.form.reset();
   }
 
   private initForm() {

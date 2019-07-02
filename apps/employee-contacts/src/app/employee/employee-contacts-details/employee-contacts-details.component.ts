@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { EmployeeContact } from '@workspace/core-data';
@@ -13,6 +13,16 @@ export class EmployeeContactsDetailsComponent {
   @Input() group: FormGroup;
   @Input() set employeeContact(value: EmployeeContact) {
     this.selectedEmployeeContact = Object.assign({}, value);
+  }
+  @Output() saved = new EventEmitter();
+  @Output() cancelled = new EventEmitter();
+
+  saveEmployeeContact(employeeContact: EmployeeContact) {
+    this.saved.emit(employeeContact);
+  }
+
+  cancel() {
+    this.cancelled.emit();
   }
 
   determineIfUpdate() {

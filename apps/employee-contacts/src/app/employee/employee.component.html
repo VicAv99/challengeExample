@@ -1,12 +1,15 @@
 <div class="container">
   <div class="col-7">
-    <workspace-employee-contacts-list [employeeContacts]="employeeContacts$ | async">
+    <workspace-employee-contacts-list [employeeContacts]="employeeContacts$ | async"
+                                      (selected)="select($event)"
+                                      (deleted)="deleteEmployeeContact($event)">
     </workspace-employee-contacts-list>
   </div>
 
   <div class="col-5">
     <workspace-employee-contacts-details [group]="form"
-                                          [employeeContact]="employeeContact">
+                                          [employeeContact]="employeeContact"
+                                          (saved)="save($event)">
     </workspace-employee-contacts-details>
   </div>
 </div>
