@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="col-6">
+  <div class="col-7">
     <workspace-employee-contacts-list [employeeContacts]="employeeContacts$ | async">
     </workspace-employee-contacts-list>
   </div>
 
-  <div class="col-6">
-    <workspace-employee-contacts-details></workspace-employee-contacts-details>
+  <div class="col-5">
+    <workspace-employee-contacts-details [group]="form"
+                                          [employeeContact]="employeeContact">
+    </workspace-employee-contacts-details>
   </div>
 </div>
-
-<pre>{{employeeContacts$ | async | json}}</pre>

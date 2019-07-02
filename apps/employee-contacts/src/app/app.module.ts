@@ -11,6 +11,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeContactsListComponent } from './employee/employee-contacts-list/employee-contacts-list.component';
 import { EmployeeContactsDetailsComponent } from './employee/employee-contacts-details/employee-contacts-details.component';
 import { RoutingModule } from './routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { RoutingModule } from './routing.module';
     MaterialModule,
     UiLoginModule,
     UiToolbarModule,
+    FormsModule,
+    ReactiveFormsModule,
     RoutingModule
   ],
   providers: [],
