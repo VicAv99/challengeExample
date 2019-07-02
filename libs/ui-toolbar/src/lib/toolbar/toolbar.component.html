@@ -5,7 +5,7 @@
     </button>
     <span class="ml-2 mt-1">{{title}}</span>
   </div>
-  <button mat-stroked-button *ngIf="isAuthenticated">
+  <button mat-stroked-button *ngIf="isAuthenticated" (click)="logOut()">
     <mat-icon>person</mat-icon>
   </button>
 </mat-toolbar>
