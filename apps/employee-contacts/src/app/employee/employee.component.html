@@ -1,3 +1,12 @@
-<p>
-  employee works!
-</p>
+<div class="container">
+  <div class="col-6">
+    <workspace-employee-contacts-list [employeeContacts]="employeeContacts$ | async">
+    </workspace-employee-contacts-list>
+  </div>
+
+  <div class="col-6">
+    <workspace-employee-contacts-details></workspace-employee-contacts-details>
+  </div>
+</div>
+
+<pre>{{employeeContacts$ | async | json}}</pre>
