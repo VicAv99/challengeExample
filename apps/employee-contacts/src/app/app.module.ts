@@ -7,15 +7,25 @@ import { MaterialModule } from '@workspace/material';
 import { CoreDataModule } from '@workspace/core-data';
 
 import { AppComponent } from './app.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { EmployeeContactsListComponent } from './employee/employee-contacts-list/employee-contacts-list.component';
+import { EmployeeContactsDetailsComponent } from './employee/employee-contacts-details/employee-contacts-details.component';
+import { RoutingModule } from './routing.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    EmployeeComponent,
+    EmployeeContactsListComponent,
+    EmployeeContactsDetailsComponent
+  ],
   imports: [
     BrowserModule,
     CoreDataModule,
     MaterialModule,
     UiLoginModule,
-    UiToolbarModule
+    UiToolbarModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
